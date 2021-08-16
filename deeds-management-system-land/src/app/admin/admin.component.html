@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form (ngSubmit)="onSubmit()" #f="ngForm">
+                <h2 style="color: darkblue; font-weight: bold;">Administrator Log In</h2>
+                <div class="form-group">
+                    <label for="adminUsername">Admin Username</label>   
+                    <input 
+                        type="text"
+                        id="adminUsername"
+                        name="adminUsername"
+                        class="form-control"
+                        ngModel
+                        [disabled]="validAdmin"
+                        required>                 
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Admin Password</label>   
+                    <input 
+                        type="password"
+                        id="adminPassword"
+                        name="adminPassword"
+                        class="form-control"
+                        ngModel
+                        [disabled]="validAdmin"
+                        required>                 
+                </div>
+                <button 
+                    [disabled]="!f.valid || validAdmin"
+                    class="btn btn-success" 
+                    type="submit">Log In</button>
+            </form>
+        </div>
+    </div>
+</div>

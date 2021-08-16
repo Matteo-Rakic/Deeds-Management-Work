@@ -1,0 +1,142 @@
+<div class="container-fluid">
+    <div class="row">
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+            <div class="form-group">
+                <label for="country">Please enter the country:</label>
+                <input 
+                    type="text"
+                    id="country"
+                    name="country"
+                    class="form-control"
+                    [ngModel]="land.country"
+                    required
+                    maxlength="30"
+                    #country="ngModel">
+                <span 
+                    class="help-block" 
+                    *ngIf="country.touched && !country.valid">Please provide a valid country!</span>
+            </div>
+            <div class="form-group">
+                <label for="address">Please enter the address:</label>
+                <input 
+                    type="text"
+                    id="address"
+                    name="address"
+                    class="form-control"
+                    [ngModel]="land.address"
+                    required
+                    maxlength="50"
+                    #address="ngModel">
+                <span class="help-block">street number and street name, suburb name, city name</span>
+                <span 
+                    class="help-block"
+                    *ngIf="address.touched && !address.valid">Please provide a valid address!</span>
+            </div>
+            <div class="form-group">
+                <label for="postalCode">Please enter the postal code:</label>
+                <input 
+                    type="text"
+                    id="postalCode"
+                    name="postalCode"
+                    class="form-control"
+                    [ngModel]="land.postalCode"
+                    required
+                    maxlength="10"
+                    #postalCode="ngModel">
+                <span 
+                    class="help-block" 
+                    *ngIf="postalCode.touched && !postalCode.valid">Please provide a valid postal code!</span>
+            </div>
+            <div class="form-group">
+                <label for="state">Please enter the state:</label>
+                <input 
+                    type="text"
+                    id="state"
+                    name="state"
+                    class="form-control"
+                    [ngModel]="land.state"
+                    required
+                    maxlength="30"
+                    #state="ngModel">
+                <span 
+                    class="help-block" 
+                    *ngIf="state.touched && !state.valid">Please provide a valid state!</span>
+            </div>
+            <div class="form-group">
+                <label for="propertyType">Please enter the type of property (e.g. agricultural):</label>
+                <select 
+                    id="propertyType"
+                    name="propertyType"
+                    class="form-control"
+                    [(ngModel)]="land.propertyType"
+                    required
+                    #propertyType="ngModel">
+                    <option 
+                        *ngFor="let propType of propTypes"
+                        [ngValue]="propType">
+                        {{ propType }}
+                    </option>
+                    <span 
+                        class="help-block" 
+                        *ngIf="propertyType.touched && !propertyType.valid">Please select the type of property!</span>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="marketValue">Please enter the estimated market value in US$:</label>
+                <input 
+                    type="number"
+                    id="marketValue"
+                    name="marketValue"
+                    class="form-control"
+                    pattern="^[1-9]+[0-9]*$"
+                    [ngModel]="land.marketValue"
+                    required
+                    maxlength="12"
+                    #marketValue="ngModel">
+                <span 
+                    class="help-block" 
+                    *ngIf="marketValue.touched && !marketValue.valid">Please provide a valid market value!</span>
+            </div>
+            <div class="form-group">
+                <label for="nameOfOwner">Please enter the name of the owner of this property:</label>
+                <input 
+                    type="text"
+                    id="nameOfOwner"
+                    name="nameOfOwner"
+                    class="form-control"
+                    [ngModel]="land.nameOfOwner"
+                    required
+                    maxlength="50"
+                    #nameOfOwner="ngModel">
+                <span 
+                    class="help-block" 
+                    *ngIf="nameOfOwner.touched && !nameOfOwner.valid">Please provide a valid full name!</span>
+            </div>
+            <div class="form-group">
+                <label for="email">Please enter the email address of the owner:</label>
+                <input 
+                    type="text"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    [ngModel]="land.email"
+                    email
+                    required
+                    maxlength="50"
+                    #email="ngModel">
+                <span 
+                    class="help-block" 
+                    *ngIf="email.touched && !email.valid">Please provide a valid email address!</span>
+            </div>
+            <button
+                class="btn btn-danger"
+                (click)="onCancel()">
+                Cancel</button>
+            <button
+                class="btn btn-success"
+                [disabled]="!f.valid"
+                type="submit">
+                Confirm Details</button>
+        </form>
+    </div>
+</div>

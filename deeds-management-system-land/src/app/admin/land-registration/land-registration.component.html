@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <ul class="nav nav-tabs">
+                <li role="presentation"
+                    routerLinkActive="active">
+                    <a routerLink="register-land">Register Land</a>
+                </li>
+                <li role="presentation"
+                    routerLinkActive="active">
+                    <a routerLink="import-land">Import Land</a>
+                </li>
+                <li role="presentation"
+                    routerLinkActive="active">
+                    <a routerLink="view-land">View Land</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<!-- need nav tabs with the different components according to register new land, import new land, update land, view land, list land -->
