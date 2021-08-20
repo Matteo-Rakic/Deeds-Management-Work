@@ -1,0 +1,16 @@
+<h5
+    style="text-decoration: underline;" 
+    class="list-group-item-text">
+    This is all the information for the property with ID: {{ land.propertyID }}
+</h5>
+<hr>
+<p class="list-group-item-text">Country: {{ land.country }}</p>
+<p class="list-group-item-text">Address: {{ land.address }}</p>
+<p class="list-group-item-text">Postal Code: {{ land.postalCode }}</p>
+<p class="list-group-item-text">State: {{ land.state }}</p>
+<p class="list-group-item-text">Type of Property: {{ land.propertyType }}</p>
+<p class="list-group-item-text">Market Value: US$ {{ land.marketValue }}</p>
+<p class="list-group-item-text">Name of Owner: {{ land.nameOfOwner }}</p>
+<p class="list-group-item-text">Email Address: {{ land.email }}</p>
+<hr>
+<button class="btn btn-success" (click)="onUpdate()">Update Property Details</button>

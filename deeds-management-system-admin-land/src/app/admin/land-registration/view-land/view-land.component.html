@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <h4
+                style="text-decoration: underline;">
+                List of All Properties by their Unique ID's
+            </h4>
+            <hr>
+            <label for="filter">Enter an ID number to filter by: </label>
+            <input 
+                name="filter"
+                type="text"
+                [(ngModel)]="filteredID">
+            <br>
+            <br>
+            <app-land-item
+                *ngFor="let landEl of lands | filter:filteredID:'propertyID'; let i = index"
+                [index]="i"
+                [land]="landEl"
+            ></app-land-item>
+        </div>
+        <div class="col-md-6">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<!-- *ngFor="let landEl of lands | filter:filteredID:'lands.propertyID'; let i = index" -->
